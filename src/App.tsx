@@ -1,11 +1,15 @@
-import './App.css';
+import React, { Component, JSX } from 'react';
+import CardList from './components/CardList/CardList';
+import styles from './App.module.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Class components</h1>
-    </div>
-  );
+class App extends Component {
+  render(): JSX.Element {
+    return (
+      <div className={styles.container}>
+        <CardList />
+      </div>
+    );
+  }
 }
 
 export default App;

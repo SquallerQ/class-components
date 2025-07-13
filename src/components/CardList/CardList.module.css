@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.error {
+  padding: 1rem;
+  color: #dc2626;
+  text-align: center;
+}
+
+.loading {
+  padding: 1rem;
+  text-align: center;
+  color: #4b5563;
+}
