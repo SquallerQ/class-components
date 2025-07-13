@@ -56,7 +56,6 @@ class CardList extends Component<CardListProps, CardListState> {
           );
         }
         const data: Pokemon = await response.json();
-        console.log(`Fetched Pokémon: ${searchTerm}`, data);
         pokemonDetails = [data];
       } else {
         const response = await fetch(
@@ -66,7 +65,6 @@ class CardList extends Component<CardListProps, CardListState> {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
-        console.log('Fetched Pokémon list:', data.results);
         pokemonDetails = await Promise.all(
           data.results.map(async (summary: PokemonSummary) => {
             const detailResponse = await fetch(summary.url);
@@ -74,7 +72,6 @@ class CardList extends Component<CardListProps, CardListState> {
               throw new Error(`HTTP error! Status: ${detailResponse.status}`);
             }
             const detailData: Pokemon = await detailResponse.json();
-            console.log(`Fetched details for ${summary.name}:`, detailData);
             return detailData;
           })
         );
